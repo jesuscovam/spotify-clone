@@ -1,7 +1,10 @@
 import { useRoute } from "@react-navigation/native";
 import * as React from "react";
 import { useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
+import AlbumHeader from "../components/AlbumHeader";
+import SongListItem from "../components/SongListItem";
+import albumDetails from "../data/albumDetail";
 
 const album = {
   id: "1",
@@ -42,6 +45,12 @@ const AlbumScreen = (props) => {
   return (
     <View>
       <Text style={{ color: "white" }}>Hola Album Screen </Text>
+      <FlatList
+        data={albumDetails.songs}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <SongListItem song={item} />}
+        ListHeaderComponent={() => <AlbumHeader album={albumDetails} />}
+      />
     </View>
   );
 };
