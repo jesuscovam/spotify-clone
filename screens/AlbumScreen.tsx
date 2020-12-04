@@ -44,7 +44,6 @@ const AlbumScreen = (props) => {
   useEffect(function componentDidMount() {}, []);
   return (
     <View>
-      <Text style={{ color: "white" }}>Hola Album Screen </Text>
       <FlatList
         data={albumDetails.songs}
         keyExtractor={(item) => item.id}
